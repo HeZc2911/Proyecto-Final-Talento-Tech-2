@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    font-family: 'Poppins', sans-serif;
+    background-color: #d6e7f6;
+}
+
+#t_img
+{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.navbar 
+{
+    background-color: #6db4ff !important; /* Azul principal */
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link 
+{
+    color: #ffffff !important; /* Texto blanco */
+}
+
+.hover-underline 
+{ 
+    position: relative;
+    display: inline-block;
+}
+
+.hover-underline::after,
+.hover-underline::before 
+{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #6db4ff, #3df9ff);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease-out;
+}
+  
+.hover-underline::before 
+{
+    top: -5px;
+    transform-origin: left;
+}
+  
+.hover-underline:hover::after,
+.hover-underline:hover::before
+{
+    transform: scaleX(1);
+}
