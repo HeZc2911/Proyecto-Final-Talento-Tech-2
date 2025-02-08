@@ -10,11 +10,11 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg border-bottom border-body sticky-top">
+    <nav class="navbar navbar-expand-lg border-bottom border-body fixed-top">
         <div class="container">
             <!-- Logo -->
             <a id="t_img" class="navbar-brand" href="#">
-                <img src="styles/img/Logo2.png" alt="logo" width="50" height="50" class="d-inline-block align-text-center">
+                <img src="styles/img/Logo2.png" alt="logo" width="50" height="50" class="img-fluid d-inline-block align-text-center">
                 Innovación Medellín
             </a>
 
@@ -37,13 +37,59 @@
             </div>
         </div>
     </nav>
+
+
     <header class="hero-section d-flex align-items-center text-white text-center">
         <div class="container">
             <h1 class="display-4 fw-bold">Innovación y Emprendimiento en Medellín</h1>
             <p class="lead">Descubre datos, tendencias y oportunidades para innovar y emprender en tu ciudad.</p>
-            <a href="#datos" class="btn btn-primary btn-lg mt-3">Explorar más</a>
+            <a id="herobtn" href="#datos" class="btn btn-lg mt-3">Explorar más</a>
         </div>
     </header>
+
+    <section id="ftxt" class="container py-5">
+        <div class="text-start mb-4 d-block">
+            <h3>
+                todas las grandes
+                <br> ideas comienzan
+                <br> con pequeñas ideas
+            </h3>
+
+            <p class="py-3">
+                Somos una plataforma global de fortalecimiento empresarial para el desarrollo del empresarismo, 
+                que articula ecosistemas de impacto en temáticas tales como clima, agro y género, 
+                con un enfoque en el desarrollo de capacidades para la internacionalización, 
+                por medio de nuestra representación de la Red Europea de Empresas.    
+            </p>
+        </div>
+    </section>
+
+
+
+
+    <section id="informacion" class="container py-5">
+        <h2 class="text-center mb-4">Información sobre Emprendimiento</h2>
+    
+        <form>
+            <div class="mb-3">
+                <label for="tipoEmprendimiento" class="form-label">Selecciona un tipo de emprendimiento</label>
+                <select class="form-select" id="tipoEmprendimiento">
+                    <option>Social</option>
+                    <option>Tecnológico</option>
+                    <option>Cultural</option>
+                    <option>Empresarial</option>
+                </select>
+            </div>
+    
+            <div class="mb-3">
+                <label for="interes" class="form-label">¿Qué información te interesa?</label>
+                <input type="text" class="form-control" id="interes" placeholder="Ejemplo: Recursos, tendencias, apoyo...">
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+    </section>
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/asset.js"></script>
 </body>
