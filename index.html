@@ -28,7 +28,7 @@ https://www.datos.gov.co/Comercio-Industria-y-Turismo/ACTIVIDADES-DE-EMPRENDIMIE
     <nav class="navbar navbar-expand-lg border-bottom border-body fixed-top">
         <div class="container">
             <a id="t_img" class="navbar-brand" href="#">
-                <img src="styles/img/logo.png" alt="logo" width="150px" height="50px"
+                <img src="styles/img/logoo.png" alt="logo" width="150px" height="50px"
                     class="img-fluid d-inline-block align-text-center">
                 <!--Red Comunitaria-->
             </a>
@@ -97,6 +97,26 @@ https://www.datos.gov.co/Comercio-Industria-y-Turismo/ACTIVIDADES-DE-EMPRENDIMIE
                 Universidad Nacional: medellin.unal.edu.co</p>
         </div>
     </section>
+    <!-- Sección de Datos (Tabla) -->
+<section id="datos" class="container py-5">
+    <h2 class="text-center mb-4">Datos sobre Emprendimiento</h2>
+    <div class="table-responsive">
+        <table id="dataTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Año</th>
+                    <th>Nombre</th>
+                    <th>Género</th>
+                    <th>Edad</th>
+                    <th>Objeto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los datos se cargarán dinámicamente aquí -->
+            </tbody>
+        </table>
+    </div>
+</section>
 
     <section id="datos" class="container py-5">
         <h2 class="text-center mb-4">Datos sobre Emprendimiento</h2>
@@ -142,34 +162,40 @@ https://www.datos.gov.co/Comercio-Industria-y-Turismo/ACTIVIDADES-DE-EMPRENDIMIE
     </section>
 
     <section id="encuesta" class="container py-5">
-        <h2 class="text-center mb-4">Encuesta de Capacidad de Emprendimiento</h2>
-        <form id="encuestaForm">
+        <h2 class="text-center mb-4">Encuesta de Nivel de Innovación</h2>
+        <button class="btn btn-primary w-100 mb-4" onclick="toggleEncuesta()">Mostrar/Ocultar Encuesta</button>
+        <form id="encuestaForm" style="display: none;">
             <div class="mb-3">
-                <label for="pregunta1" class="form-label">1. ¿Tienes experiencia previa en emprendimiento?</label>
+                <label for="pregunta1" class="form-label">1. ¿Tienes experiencia en innovación?</label>
                 <select class="form-select" id="pregunta1">
-                    <option value="1">Sí</option>
                     <option value="0">No</option>
+                    <option value="1">Sí, poca</option>
+                    <option value="2">Sí, moderada</option>
+                    <option value="3">Sí, mucha</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="pregunta2" class="form-label">2. ¿Tienes acceso a recursos financieros?</label>
+                <label for="pregunta2" class="form-label">2. ¿Tienes acceso a recursos para innovar?</label>
                 <select class="form-select" id="pregunta2">
-                    <option value="1">Sí</option>
                     <option value="0">No</option>
+                    <option value="1">Sí, limitados</option>
+                    <option value="2">Sí, suficientes</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="pregunta3" class="form-label">3. ¿Tienes una red de contactos que te apoyen?</label>
+                <label for="pregunta3" class="form-label">3. ¿Participas en redes de innovación?</label>
                 <select class="form-select" id="pregunta3">
-                    <option value="1">Sí</option>
                     <option value="0">No</option>
+                    <option value="1">Sí, ocasionalmente</option>
+                    <option value="2">Sí, frecuentemente</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Calcular</button>
+            <button type="submit" class="btn btn-primary">Calcular Nivel de Innovación</button>
         </form>
         <div id="resultadoEncuesta" class="mt-4"></div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer bg-dark text-white text-center py-4">
         <div class="row footer-main">
 
@@ -216,6 +242,34 @@ https://www.datos.gov.co/Comercio-Industria-y-Turismo/ACTIVIDADES-DE-EMPRENDIMIE
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/asset.js"></script>
+    <script>
+        // Función para mostrar/ocultar la encuesta
+        function toggleEncuesta() {
+            const form = document.getElementById('encuestaForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Función para calcular el nivel de innovación
+        document.getElementById('encuestaForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const pregunta1 = parseInt(document.getElementById('pregunta1').value);
+            const pregunta2 = parseInt(document.getElementById('pregunta2').value);
+            const pregunta3 = parseInt(document.getElementById('pregunta3').value);
+
+            const total = pregunta1 + pregunta2 + pregunta3;
+            let resultado = '';
+
+            if (total >= 6) {
+                resultado = '¡Tienes un alto nivel de innovación!';
+            } else if (total >= 3) {
+                resultado = 'Tienes un nivel moderado de innovación.';
+            } else {
+                resultado = 'Necesitas más recursos y apoyo para innovar.';
+            }
+
+            document.getElementById('resultadoEncuesta').textContent = resultado;
+        });
+    </script>
 </body>
 <!--<<<<<<< HEAD-->
 

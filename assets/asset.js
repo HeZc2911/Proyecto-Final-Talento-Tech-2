@@ -85,7 +85,11 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-
+        // Función para mostrar/ocultar la encuesta
+        function toggleEncuesta() {
+            const form = document.getElementById('encuestaForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
     // Encuesta de Capacidad de Emprendimiento
     document.getElementById('encuestaForm').addEventListener('submit', function (e) {
         e.preventDefault();
@@ -108,92 +112,63 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function mapearDatos(datos, columnasOriginales) {
+    return datos.map(item => {
+        return {
+            Año: item[columnasOriginales.Año] || "N/A",
+            Nombre: item[columnasOriginales.Nombre] || "N/A",
+            Género: item[columnasOriginales.Género] || "N/A",
+            Edad: item[columnasOriginales.Edad] || "N/A",
+            Objeto: item[columnasOriginales.Objeto] || "N/A"
+        };
+    });
+}
 document.addEventListener('DOMContentLoaded', function () {
-    // Cargar los datos desde los archivos JSON
-    fetch('assets/Dbs/Asociaciones_Casa_de_la_Mujer_-_Cota.json')
-        .then(response => response.json())
-        .then(data => {
-            const table = $('#dataTable').DataTable({
-                data: data,
-                columns: [
-                    { data: 'AÑO DE CONSTITUCIÓN', title: 'Año' },
-                    { data: 'NOMBRE CORPORACIÓN O ASOCIACIÓN', title: 'Nombre' },
-                    { data: 'GENERO ASOCIADOS', title: 'Género' },
-                    { data: 'EDAD', title: 'Edad' },
-                    { data: 'OBJETO DE LA ASOCIACIÓN O CORPORACIÓN', title: 'Objeto' }
-                ],
-                responsive: true,
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ]
-            });
+    // URLs de los archivos JSON
+    const url1 = 'assets/Dbs/Asociaciones_Casa_de_la_Mujer_-_Cota.json';
+    const url2 = 'assets/Dbs/emprendimiento_juvenil.json';
+
+    // Cargar y mapear los datos
+    Promise.all([
+        fetch(url1).then(response => response.json()),
+        fetch(url2).then(response => response.json())
+    ])
+    .then(([data1, data2]) => {
+        // Mapear la primera base de datos
+        const datosMapeados1 = mapearDatos(data1, {
+            Año: "AÑO DE CONSTITUCIÓN",
+            Nombre: "NOMBRE CORPORACIÓN O ASOCIACIÓN",
+            Género: "GENERO ASOCIADOS",
+            Edad: "EDAD",
+            Objeto: "OBJETO DE LA ASOCIACIÓN O CORPORACIÓN"
         });
 
-    fetch('assets/Dbs/emprendimiento_juvenil.json')
-        .then(response => response.json())
-        .then(data => {
-            const table = $('#dataTable').DataTable({
-                data: data,
-                columns: [
-                    { data: 'FECHA REGISTRO', title: 'Fecha' },
-                    { data: 'DEPENDENCIA GESTORA', title: 'Dependencia' },
-                    { data: 'EDAD', title: 'Edad' },
-                    { data: 'GÉNERO', title: 'Género' },
-                    { data: 'NIVEL DE EDUCACIÓN', title: 'Educación' },
-                    { data: 'TIPO DE USUARIO', title: 'Tipo de Usuario' },
-                    { data: 'NOMBRE DE LA ACTIVIDAD', title: 'Actividad' },
-                    { data: 'DESCRIPCIÓN', title: 'Descripción' }
-                ],
-                responsive: true,
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ]
-            });
+        // Mapear la segunda base de datos
+        const datosMapeados2 = mapearDatos(data2, {
+            Año: "FECHA REGISTRO",
+            Nombre: "NOMBRE DE LA ACTIVIDAD",
+            Género: "GÉNERO",
+            Edad: "EDAD",
+            Objeto: "DESCRIPCIÓN"
         });
+
+        // Combinar los datos
+        const combinedData = [...datosMapeados1, ...datosMapeados2];
+
+        // Inicializar DataTables
+        const table = $('#dataTable').DataTable({
+            data: combinedData,
+            columns: [
+                { title: "Año", data: "Año" },
+                { title: "Nombre", data: "Nombre" },
+                { title: "Género", data: "Género" },
+                { title: "Edad", data: "Edad" },
+                { title: "Objeto", data: "Objeto" }
+            ],
+            responsive: true,
+            dom: 'Bfrtip',
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+        });
+    })
+    .catch(error => console.error('Error:', error));
 });
-document.addEventListener('DOMContentLoaded', function () {
-    // Cargar los datos desde los archivos JSON
-    fetch('assets/Dbs/Asociaciones_Casa_de_la_Mujer_-_Cota.json')
-        .then(response => response.json())
-        .then(data => {
-            const table = $('#dataTable').DataTable({
-                data: data,
-                columns: [
-                    { data: 'AÑO DE CONSTITUCIÓN', title: 'Año' },
-                    { data: 'NOMBRE CORPORACIÓN O ASOCIACIÓN', title: 'Nombre' },
-                    { data: 'GENERO ASOCIADOS', title: 'Género' },
-                    { data: 'EDAD', title: 'Edad' },
-                    { data: 'OBJETO DE LA ASOCIACIÓN O CORPORACIÓN', title: 'Objeto' }
-                ],
-                responsive: true,
-                dom: 'Bfrtip',
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ],
-                initComplete: function () {
-                    this.api().columns().every(function () {
-                        var column = this;
-                        var select = $('<select><option value=""></option></select>')
-                            .appendTo($(column.footer()).empty())
-                            .on('change', function () {
-                                var val = $.fn.dataTable.util.escapeRegex(
-                                    $(this).val()
-                                );
-
-                                column
-                                    .search(val ? '^' + val + '$' : '', true, false)
-                                    .draw();
-                            });
-
-                        column.data().unique().sort().each(function (d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>')
-                        });
-                    });
-                }
-            });
-        });
-});
-
-
