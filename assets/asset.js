@@ -168,45 +168,49 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(error => console.error('Error:', error));
 });
 document.addEventListener('DOMContentLoaded', function () {
-    // Formulario para Persona Natural
+    // Formulario Persona Natural
     document.getElementById('formPersonaNatural').addEventListener('submit', function (e) {
         e.preventDefault();
-        const pregunta1 = parseInt(document.getElementById('pregunta1').value);
-        const pregunta2 = parseInt(document.getElementById('pregunta2').value);
-        const pregunta3 = parseInt(document.getElementById('pregunta3').value);
-
-        const total = pregunta1 + pregunta2 + pregunta3;
-        let resultado = '';
-
-        if (total >= 6) {
-            resultado = '¡Tienes un alto potencial de emprendimiento!';
-        } else if (total >= 3) {
-            resultado = 'Tienes un potencial moderado de emprendimiento.';
-        } else {
-            resultado = 'Necesitas más recursos y apoyo para emprender.';
+        let total = 0;
+        
+        // Sumar todas las respuestas (preguntas 1 a 25)
+        for (let i = 1; i <= 25; i++) {
+            const value = parseInt(document.getElementById(`pregunta${i}`).value);
+            total += value;
         }
-
+        
+        // Calcular resultado
+        let resultado = '';
+        if (total >= 75) {
+            resultado = '¡Tienes un alto potencial de emprendimiento! Sigue aprovechando tus habilidades y sigue aprendiendo nuevas estrategias.';
+        } else if (total >= 40) {
+            resultado = 'Tienes un potencial moderado de emprendimiento. Refuerza tus habilidades, busca mentoría y rodéate de otros emprendedores.';
+        } else {
+            resultado = 'Necesitas más recursos y apoyo para emprender. Considera cursos de emprendimiento y busca inspiración en casos de éxito.';
+        }
         document.getElementById('resultadoPersonaNatural').textContent = resultado;
     });
 
-    // Formulario para Líder de Empresa
+    // Formulario Líder de Empresa
     document.getElementById('formLiderEmpresa').addEventListener('submit', function (e) {
         e.preventDefault();
-        const pregunta1 = parseInt(document.getElementById('pregunta1Empresa').value);
-        const pregunta2 = parseInt(document.getElementById('pregunta2Empresa').value);
-        const pregunta3 = parseInt(document.getElementById('pregunta3Empresa').value);
-
-        const total = pregunta1 + pregunta2 + pregunta3 + pregunta4 + pregunta5 + pregunta6 + pregunta7 + pregunta8 + pregunta9 + pregunta10 + pregunta11 + pregunta12 + pregunta13 + pregunta14;
-        let resultado = '';
-
-        if (total >= 5) {
-            resultado = '¡Tu empresa tiene un alto nivel de innovación!';
-        } else if (total >= 3) {
-            resultado = 'Tu empresa tiene un nivel moderado de innovación.';
-        } else {
-            resultado = 'Tu empresa necesita más inversión en innovación.';
+        let total = 0;
+        
+        // Sumar todas las respuestas (preguntas 1 a 15)
+        for (let i = 1; i <= 15; i++) {
+            const value = parseInt(document.getElementById(`pregunta${i}Empresa`).value);
+            total += value;
         }
-
+        
+        // Calcular resultado con consejos personalizados
+        let resultado = '';
+        if (total >= 12) {
+            resultado = '¡Tu empresa tiene un alto nivel de innovación! Felicidades, estás liderando el camino en creatividad y desarrollo. Recuerda que la innovación constante mantiene la ventaja competitiva y mejora la satisfacción del cliente. Sigue explorando nuevas tecnologías y fomentando una cultura innovadora en tu equipo.';
+        } else if (total >= 7) {
+            resultado = 'Tu empresa tiene un nivel moderado de innovación. Vas por buen camino, pero aún hay detalles que mejorar. Considera implementar sesiones de brainstorming, colaboración con startups o inversión en capacitación para potenciar la creatividad de tu equipo.';
+        } else {
+            resultado = 'Tu empresa necesita más inversión en innovación. La innovación es clave para la competitividad y el crecimiento. Prueba nuevas metodologías como Design Thinking, fomenta la experimentación y apoya a tu equipo en la generación de ideas. También puedes buscar alianzas estratégicas o participar en programas de incubación.';
+        }
         document.getElementById('resultadoLiderEmpresa').textContent = resultado;
     });
 });
