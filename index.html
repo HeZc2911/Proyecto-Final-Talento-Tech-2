@@ -160,40 +160,191 @@ https://www.datos.gov.co/Comercio-Industria-y-Turismo/ACTIVIDADES-DE-EMPRENDIMIE
             </div>
         </div>
     </section>
+<!-- aa
 
-    <section id="encuesta" class="container py-5">
-        <h2 class="text-center mb-4">Encuesta de Nivel de Innovación</h2>
-        <button class="btn btn-primary w-100 mb-4" onclick="toggleEncuesta()">Mostrar/Ocultar Encuesta</button>
-        <form id="encuestaForm" style="display: none;">
-            <div class="mb-3">
-                <label for="pregunta1" class="form-label">1. ¿Tienes experiencia en innovación?</label>
-                <select class="form-select" id="pregunta1">
-                    <option value="0">No</option>
-                    <option value="1">Sí, poca</option>
-                    <option value="2">Sí, moderada</option>
-                    <option value="3">Sí, mucha</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="pregunta2" class="form-label">2. ¿Tienes acceso a recursos para innovar?</label>
-                <select class="form-select" id="pregunta2">
-                    <option value="0">No</option>
-                    <option value="1">Sí, limitados</option>
-                    <option value="2">Sí, suficientes</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="pregunta3" class="form-label">3. ¿Participas en redes de innovación?</label>
-                <select class="form-select" id="pregunta3">
-                    <option value="0">No</option>
-                    <option value="1">Sí, ocasionalmente</option>
-                    <option value="2">Sí, frecuentemente</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Calcular Nivel de Innovación</button>
-        </form>
-        <div id="resultadoEncuesta" class="mt-4"></div>
-    </section>
+
+En nuestras reuniones: ¿la gente se nutre o “engorda”?
+¿Capacitamos en algo que otros no capaciten?
+¿Propiciamos la circulación formal de muchas ideas aunque no todas se concreten?
+¿Tenemos en nuestro haber una buena cantidad de ideas efectivamente aplicadas en los últimos dos años?
+¿Hemos logrado impactos que signifiquen transformaciones interesantes?
+¿Sabemos copiar?
+¿Nos han copiado lo suficiente?
+¿Nos atrevemos a lo que otros no se atreven?
+¿Trabajamos con socios y proveedores que valoran la originalidad, la innovación y la capacidad emprendedora?
+¿Trabajamos con clientes o públicos exigentes en cuanto a su originalidad y originales ellos mismos?
+¿Contamos con una buena cantidad de intangibles en nombres, marcas, logotipos, presencia en redes sociales, patentes, derechos de autor, etc.?
+¿Figura, entre los valores que priorizamos, alguno vinculado a la creatividad o a la innovación? -->
+<!-- Sección de Encuesta -->
+<section id="encuesta" class="container py-5">
+    <h2 class="text-center mb-4">Encuesta de Capacidad de Emprendimiento</h2>
+
+    <!-- Pestañas -->
+    <ul class="nav nav-tabs" id="encuestaTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="persona-natural-tab" data-bs-toggle="tab" data-bs-target="#persona-natural" type="button" role="tab" aria-controls="persona-natural" aria-selected="true">Persona Natural</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="lider-empresa-tab" data-bs-toggle="tab" data-bs-target="#lider-empresa" type="button" role="tab" aria-controls="lider-empresa" aria-selected="false">Líder de Empresa</button>
+        </li>
+    </ul>
+
+    <!-- Contenido de las pestañas -->
+    <div class="tab-content" id="encuestaTabsContent">
+        <!-- Formulario para Persona Natural -->
+        <div class="tab-pane fade show active" id="persona-natural" role="tabpanel" aria-labelledby="persona-natural-tab">
+            <form id="formPersonaNatural" class="mt-4">
+                <div class="mb-3">
+                    <label for="pregunta1" class="form-label">1. ¿Tienes experiencia previa en emprendimiento?</label>
+                    <select class="form-select" id="pregunta1">
+                        <option value="0">No</option>
+                        <option value="1">Sí, poca</option>
+                        <option value="2">Sí, moderada</option>
+                        <option value="3">Sí, mucha</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pregunta2" class="form-label">2. ¿Tienes acceso a recursos financieros?</label>
+                    <select class="form-select" id="pregunta2">
+                        <option value="0">No</option>
+                        <option value="1">Sí, limitados</option>
+                        <option value="2">Sí, suficientes</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pregunta3" class="form-label">3. ¿Participas en redes de innovación?</label>
+                    <select class="form-select" id="pregunta3">
+                        <option value="0">No</option>
+                        <option value="1">Sí, ocasionalmente</option>
+                        <option value="2">Sí, frecuentemente</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Calcular</button>
+            </form>
+            <div id="resultadoPersonaNatural" class="mt-4"></div>
+        </div>
+
+        <!-- Formulario para Líder de Empresa -->
+        <div class="tab-pane fade" id="lider-empresa" role="tabpanel" aria-labelledby="lider-empresa-tab">
+            <form id="formLiderEmpresa" class="mt-4">
+                <div class="mb-3">
+                    <label for="pregunta1Empresa" class="form-label">1. ¿Cuántos empleados tiene tu empresa?</label>
+                    <select class="form-select" id="pregunta1Empresa">
+                        <option value="0">Menos de 10</option>
+                        <option value="1">10-50</option>
+                        <option value="2">Más de 50</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pregunta2Empresa" class="form-label">2. ¿¿Nos resulta sencillo armar equipos espontáneos para encarar desafíos puntuales cuando la realidad lo exige o las oportunidades aparecen?</label>
+                    <select class="form-select" id="pregunta2Empresa">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                        <option value="2">Sí, fácil</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pregunta3Empresa" class="form-label">3. ¿Inviertes en investigación y desarrollo?</label>
+                    <select class="form-select" id="pregunta3Empresa">
+                        <option value="0">No</option>
+                        <option value="1">Sí, ocasionalmente</option>
+                        <option value="2">Sí, frecuentemente</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pregunta4Empresa" class="form-label">4. ¿Cuántos empleados tiene tu empresa?</label>
+                    <select class="form-select" id="pregunta1Empresa">
+                        <option value="0">Menos de 10</option>
+                        <option value="1">10-50</option>
+                        <option value="2">Más de 50</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pregunta5Empresa" class="form-label">5. ¿Cuántos empleados tiene tu empresa?</label>
+                    <select class="form-select" id="pregunta1Empresa">
+                        <option value="0">Menos de 10</option>
+                        <option value="1">10-50</option>
+                        <option value="2">Más de 50</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pregunta6Empresa" class="form-label">6. ¿Cuántos empleados tiene tu empresa?</label>
+                    <select class="form-select" id="pregunta1Empresa">
+                        <option value="0">Menos de 10</option>
+                        <option value="1">10-50</option>
+                        <option value="2">Más de 50</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pregunta7Empresa" class="form-label">7. ¿Cuántos empleados tiene tu empresa?</label>
+                    <select class="form-select" id="pregunta1Empresa">
+                        <option value="0">Menos de 10</option>
+                        <option value="1">10-50</option>
+                        <option value="2">Más de 50</option>
+                    </select>
+                    <div class="mb-3">
+                        <label for="pregunta8Empresa" class="form-label">8. ¿Cuántos empleados tiene tu empresa?</label>
+                        <select class="form-select" id="pregunta1Empresa">
+                            <option value="0">Menos de 10</option>
+                            <option value="1">10-50</option>
+                            <option value="2">Más de 50</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pregunta9Empresa" class="form-label">9. ¿Cuántos empleados tiene tu empresa?</label>
+                        <select class="form-select" id="pregunta1Empresa">
+                            <option value="0">Menos de 10</option>
+                            <option value="1">10-50</option>
+                            <option value="2">Más de 50</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pregunta10Empresa" class="form-label">10. ¿Cuántos empleados tiene tu empresa?</label>
+                        <select class="form-select" id="pregunta1Empresa">
+                            <option value="0">Menos de 10</option>
+                            <option value="1">10-50</option>
+                            <option value="2">Más de 50</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pregunta11Empresa" class="form-label">11. ¿Cuántos empleados tiene tu empresa?</label>
+                        <select class="form-select" id="pregunta1Empresa">
+                            <option value="0">Menos de 10</option>
+                            <option value="1">10-50</option>
+                            <option value="2">Más de 50</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pregunta12Empresa" class="form-label">12. ¿Cuántos empleados tiene tu empresa?</label>
+                        <select class="form-select" id="pregunta1Empresa">
+                            <option value="0">Menos de 10</option>
+                            <option value="1">10-50</option>
+                            <option value="2">Más de 50</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pregunta13Empresa" class="form-label">13. ¿Cuántos empleados tiene tu empresa?</label>
+                        <select class="form-select" id="pregunta1Empresa">
+                            <option value="0">Menos de 10</option>
+                            <option value="1">10-50</option>
+                            <option value="2">Más de 50</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pregunta14Empresa" class="form-label">14. ¿Cuántos empleados tiene tu empresa?</label>
+                        <select class="form-select" id="pregunta1Empresa">
+                            <option value="0">Menos de 10</option>
+                            <option value="1">10-50</option>
+                            <option value="2">Más de 50</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Calcular</button>
+            </form>
+            <div id="resultadoLiderEmpresa" class="mt-4"></div>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="footer bg-dark text-white text-center py-4">
@@ -242,34 +393,6 @@ https://www.datos.gov.co/Comercio-Industria-y-Turismo/ACTIVIDADES-DE-EMPRENDIMIE
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/asset.js"></script>
-    <script>
-        // Función para mostrar/ocultar la encuesta
-        function toggleEncuesta() {
-            const form = document.getElementById('encuestaForm');
-            form.style.display = form.style.display === 'none' ? 'block' : 'none';
-        }
-
-        // Función para calcular el nivel de innovación
-        document.getElementById('encuestaForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const pregunta1 = parseInt(document.getElementById('pregunta1').value);
-            const pregunta2 = parseInt(document.getElementById('pregunta2').value);
-            const pregunta3 = parseInt(document.getElementById('pregunta3').value);
-
-            const total = pregunta1 + pregunta2 + pregunta3;
-            let resultado = '';
-
-            if (total >= 6) {
-                resultado = '¡Tienes un alto nivel de innovación!';
-            } else if (total >= 3) {
-                resultado = 'Tienes un nivel moderado de innovación.';
-            } else {
-                resultado = 'Necesitas más recursos y apoyo para innovar.';
-            }
-
-            document.getElementById('resultadoEncuesta').textContent = resultado;
-        });
-    </script>
 </body>
 <!--<<<<<<< HEAD-->
 

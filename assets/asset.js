@@ -85,11 +85,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-        // Función para mostrar/ocultar la encuesta
-        function toggleEncuesta() {
-            const form = document.getElementById('encuestaForm');
-            form.style.display = form.style.display === 'none' ? 'block' : 'none';
-        }
     // Encuesta de Capacidad de Emprendimiento
     document.getElementById('encuestaForm').addEventListener('submit', function (e) {
         e.preventDefault();
@@ -147,9 +142,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const datosMapeados2 = mapearDatos(data2, {
             Año: "FECHA REGISTRO",
             Nombre: "NOMBRE DE LA ACTIVIDAD",
-            Género: "GÉNERO",
+            Género: "GENERO",
             Edad: "EDAD",
-            Objeto: "DESCRIPCIÓN"
+            Objeto: "DESCRIPCI�N"
         });
 
         // Combinar los datos
@@ -171,4 +166,47 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     })
     .catch(error => console.error('Error:', error));
+});
+document.addEventListener('DOMContentLoaded', function () {
+    // Formulario para Persona Natural
+    document.getElementById('formPersonaNatural').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const pregunta1 = parseInt(document.getElementById('pregunta1').value);
+        const pregunta2 = parseInt(document.getElementById('pregunta2').value);
+        const pregunta3 = parseInt(document.getElementById('pregunta3').value);
+
+        const total = pregunta1 + pregunta2 + pregunta3;
+        let resultado = '';
+
+        if (total >= 6) {
+            resultado = '¡Tienes un alto potencial de emprendimiento!';
+        } else if (total >= 3) {
+            resultado = 'Tienes un potencial moderado de emprendimiento.';
+        } else {
+            resultado = 'Necesitas más recursos y apoyo para emprender.';
+        }
+
+        document.getElementById('resultadoPersonaNatural').textContent = resultado;
+    });
+
+    // Formulario para Líder de Empresa
+    document.getElementById('formLiderEmpresa').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const pregunta1 = parseInt(document.getElementById('pregunta1Empresa').value);
+        const pregunta2 = parseInt(document.getElementById('pregunta2Empresa').value);
+        const pregunta3 = parseInt(document.getElementById('pregunta3Empresa').value);
+
+        const total = pregunta1 + pregunta2 + pregunta3 + pregunta4 + pregunta5 + pregunta6 + pregunta7 + pregunta8 + pregunta9 + pregunta10 + pregunta11 + pregunta12 + pregunta13 + pregunta14;
+        let resultado = '';
+
+        if (total >= 5) {
+            resultado = '¡Tu empresa tiene un alto nivel de innovación!';
+        } else if (total >= 3) {
+            resultado = 'Tu empresa tiene un nivel moderado de innovación.';
+        } else {
+            resultado = 'Tu empresa necesita más inversión en innovación.';
+        }
+
+        document.getElementById('resultadoLiderEmpresa').textContent = resultado;
+    });
 });

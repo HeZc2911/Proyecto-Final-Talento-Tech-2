@@ -314,3 +314,35 @@ body {
 #dataTable tr:hover {
     background-color: #ddd;
 }
+
+/* Estilos para las pestañas */
+.nav-tabs .nav-link {
+    color: #6db4ff;
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    color: #1f375b;
+    border-bottom: 2px solid #1f375b;
+}
+
+/* Estilos para los formularios */
+#encuestaForm .form-label {
+    font-weight: 500;
+    color: #1f375b;
+}
+
+#encuestaForm .form-select {
+    border: 1px solid #6db4ff;
+    border-radius: 5px;
+}
+
+#encuestaForm .btn-primary {
+    background-color: #6db4ff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+#encuestaForm .btn-primary:hover {
+    background-color: #1f375b;
+}
