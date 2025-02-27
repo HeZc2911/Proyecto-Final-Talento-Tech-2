@@ -2,12 +2,13 @@
 
 /* Colores principales */
 :root {
-    --color-primary: #6db4ff; /* Azul principal */
-    --color-secondary: #3df9ff; /* Azul claro */
-    --color-dark: #1f375b; /* Azul oscuro */
+    --color-primary: #090a0a; /* Azul principal */
+    --color-secondary: #0bb705fe; /* Azul claro */
+    --color-dark: #ffffff; /* Azul oscuro */
     --color-light: #d6e7f6; /* Fondo claro */
     --color-white: #ffffff; /* Blanco */
     --color-black: #000000; /* Negro */
+    --color-verde: #00fe59; /* Negro */
 }
 
 /* Reset básico */
@@ -19,8 +20,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--color-light);
-    color: var(--color-dark);
+    background-color: var(--color-black);
+    color: var(--color-white);
     scroll-behavior: smooth;
     line-height: 1.6;
 }
@@ -138,7 +139,7 @@ body {
     font-size: 2.6rem;
     font-weight: 700;
     margin-bottom: 20px;
-    color: var(--color-dark);
+    color: var(--color-secondary);
 }
 
 #ftxt p {
@@ -158,20 +159,20 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 40px;
-    color: var(--color-dark);
+    color: var(--color-primary);
 }
 
 #datos h3 {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: var(--color-dark);
+    color: var(--color-primary);
 }
 
 #datos p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--color-dark);
+    color: var(--color-primary);
 }
 
 #datos ul {
@@ -196,7 +197,7 @@ body {
 
 /* Estilos para la sección de gráficos */
 #graficos {
-    background-color: var(--color-light);
+    background-color: var(--color-primary);
     padding: 50px 20px;
     text-align: center;
 }
@@ -225,6 +226,9 @@ body {
 }
 
 /* Estilos para la sección de encuesta */
+label {
+    color: var(--color-black);
+}
 #encuesta {
     background-color: var(--color-white);
     padding: 50px 20px;
@@ -235,7 +239,7 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 40px;
-    color: var(--color-dark);
+    color: var(--color-primary);
 }
 
 #encuestaForm {
@@ -247,7 +251,7 @@ body {
 #encuestaForm .form-label {
     font-size: 1.1rem;
     font-weight: 500;
-    color: var(--color-dark);
+    color: var(--color-black);
 }
 
 #encuestaForm .form-select {
@@ -268,28 +272,122 @@ body {
 }
 
 #encuestaForm .btn-primary:hover {
-    background-color: var(--color-dark);
+    background-color: var(--color-verde);
 }
 
 #resultadoEncuesta {
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--color-dark);
+    color: var(--color-primary);
     margin-top: 20px;
 }
 
 /* Estilos para el footer */
-.footer {
-    background-color: var(--color-dark);
-    color: var(--color-white);
-    padding: 20px;
+/* Estilos generales del footer */
+footer {
+    background-color: #f4f4f4;
+    border-top: 1px solid #ddd;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Contenedor principal del footer */
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  
+  /* Estilos para la sección izquierda */
+  .left.footer-desc {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+  
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+  .footer-desc p {
+    color:var(--color-black);
+  }
+  
+  /* Estilos para la sección derecha */
+  .right.footer-subscribe {
+    flex: 1;
+    max-width: 50%;
+    padding-left: 20px;
+    box-sizing: border-box;
+  }
+  
+  .right.footer-subscribe h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .right.footer-subscribe p {
+    margin-bottom: 20px;
+    color: #000000;
+  }
+  
+  /* Estilos para el formulario de suscripción */
+  .subscribe-form {
+    margin-top: 20px;
+  }
+  
+  .subscribe-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .subscribe-form input[type="submit"] {
+    padding: 10px 20px;
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .subscribe-form input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para la sección inferior del footer */
+  .footer-bottom {
     text-align: center;
-    font-size: 1rem;
-}
-
-.footer p {
-    margin: 0;
-}
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    color: #666;
+  }
+  
+  .footer-bottom .copyright {
+    margin-bottom: 10px;
+  }
+  
+  .footer-bottom .go-top {
+    margin-top: 10px;
+  }
+  
+  .footer-bottom .go-top a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-bottom .go-top a:hover {
+    text-decoration: underline;
+  } /* fin footer */
 /* Personaliza el estilo de DataTables */
 #dataTable {
     width: 100% !important;
@@ -317,7 +415,7 @@ body {
 
 /* Estilos para las pestañas */
 .nav-tabs .nav-link {
-    color: #6db4ff;
+    color: var(--color-secondary);
     font-weight: 500;
 }
 
