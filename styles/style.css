@@ -54,6 +54,18 @@ body {
     display: inline-block;
 }
 
+  
+  
+  .navbar-toggler-icon::before {
+    content: '';
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    border: 2px solid #05ab16; /* Cambia el color del borde (rojo en este caso) */
+    border-radius: 0.25em;
+    transform: rotate(0deg); /* Opcional: rotar el ícono si lo deseas */
+  }
+
 .hover-underline::after,
 .hover-underline::before {
     content: '';
