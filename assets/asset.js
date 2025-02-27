@@ -107,3 +107,93 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('resultadoEncuesta').textContent = resultado;
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Cargar los datos desde los archivos JSON
+    fetch('assets/Dbs/Asociaciones_Casa_de_la_Mujer_-_Cota.json')
+        .then(response => response.json())
+        .then(data => {
+            const table = $('#dataTable').DataTable({
+                data: data,
+                columns: [
+                    { data: 'AÑO DE CONSTITUCIÓN', title: 'Año' },
+                    { data: 'NOMBRE CORPORACIÓN O ASOCIACIÓN', title: 'Nombre' },
+                    { data: 'GENERO ASOCIADOS', title: 'Género' },
+                    { data: 'EDAD', title: 'Edad' },
+                    { data: 'OBJETO DE LA ASOCIACIÓN O CORPORACIÓN', title: 'Objeto' }
+                ],
+                responsive: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+
+    fetch('assets/Dbs/emprendimiento_juvenil.json')
+        .then(response => response.json())
+        .then(data => {
+            const table = $('#dataTable').DataTable({
+                data: data,
+                columns: [
+                    { data: 'FECHA REGISTRO', title: 'Fecha' },
+                    { data: 'DEPENDENCIA GESTORA', title: 'Dependencia' },
+                    { data: 'EDAD', title: 'Edad' },
+                    { data: 'GÉNERO', title: 'Género' },
+                    { data: 'NIVEL DE EDUCACIÓN', title: 'Educación' },
+                    { data: 'TIPO DE USUARIO', title: 'Tipo de Usuario' },
+                    { data: 'NOMBRE DE LA ACTIVIDAD', title: 'Actividad' },
+                    { data: 'DESCRIPCIÓN', title: 'Descripción' }
+                ],
+                responsive: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+        });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    // Cargar los datos desde los archivos JSON
+    fetch('assets/Dbs/Asociaciones_Casa_de_la_Mujer_-_Cota.json')
+        .then(response => response.json())
+        .then(data => {
+            const table = $('#dataTable').DataTable({
+                data: data,
+                columns: [
+                    { data: 'AÑO DE CONSTITUCIÓN', title: 'Año' },
+                    { data: 'NOMBRE CORPORACIÓN O ASOCIACIÓN', title: 'Nombre' },
+                    { data: 'GENERO ASOCIADOS', title: 'Género' },
+                    { data: 'EDAD', title: 'Edad' },
+                    { data: 'OBJETO DE LA ASOCIACIÓN O CORPORACIÓN', title: 'Objeto' }
+                ],
+                responsive: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                initComplete: function () {
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                }
+            });
+        });
+});
+
+

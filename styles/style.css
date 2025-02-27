@@ -290,3 +290,27 @@ body {
 .footer p {
     margin: 0;
 }
+/* Personaliza el estilo de DataTables */
+#dataTable {
+    width: 100% !important;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+#dataTable th, #dataTable td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#dataTable th {
+    background-color: #6db4ff;
+    color: white;
+}
+
+#dataTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#dataTable tr:hover {
+    background-color: #ddd;
+}
