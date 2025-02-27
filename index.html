@@ -13,7 +13,7 @@ https://www.datos.gov.co/Comercio-Industria-y-Turismo/ACTIVIDADES-DE-EMPRENDIMIE
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="styles/img/pensamiento-logico.ico " type="image/x-icon">
     <!-- Incluir jQuery antes de DataTables -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Incluir DataTables CSS y JS -->
@@ -79,22 +79,22 @@ https://www.datos.gov.co/Comercio-Industria-y-Turismo/ACTIVIDADES-DE-EMPRENDIMIE
                 por medio de nuestra representación de la Red Europea de Empresas.
             </p>
             <h4><strong>Red de organizaciones para fortalecer el emprendimiento en antioquia</strong></h4>
-            <p> Instituciones y Organizaciones
-                Ruta N: Es el centro de innovación y negocios de Medellín. Promueve la innovación y el emprendimiento en la ciudad y el departamento. Puedes visitar su página web para conocer programas, eventos y oportunidades.
+            <p><strong> Instituciones y Organizaciones</strong><br>
+                <strong><em>Ruta N:</strong> </em>Es el centro de innovación y negocios de Medellín. Promueve la innovación y el emprendimiento en la ciudad y el departamento. Puedes visitar su página web para conocer programas, eventos y oportunidades.
                 
-                Sitio web: www.rutanmedellin.org
+                Sitio web: <a href="www.rutanmedellin.or">www.rutanmedellin.org</a><br>
                 
-                Cámara de Comercio de Medellín para Antioquia: Ofrece programas de apoyo a emprendedores y empresas innovadoras.
+                <strong><em>Cámara de Comercio de Medellín para Antioquia:</em></strong> Ofrece programas de apoyo a emprendedores y empresas innovadoras.
                 
-                Sitio web: www.camaramedellin.com.co
+                <a href="www.camaramedellin.com"> web: www.camaramedellin.com.co</a><br>
                 
-                Universidades: Instituciones como la Universidad de Antioquia, EAFIT, y la Universidad Nacional tienen centros de investigación y programas de innovación.
+                <strong><em>Universidades:</em></strong> Instituciones como la Universidad de Antioquia, EAFIT, y la Universidad Nacional tienen centros de investigación y programas de innovación.<br>
                 
-                Universidad de Antioquia: www.udea.edu.co
+                <strong><em>Universidad de Antioquia:</em></strong><a href="www.udea.edu.co" >www.udea.edu.co></a> <br>
                 
-                EAFIT: www.eafit.edu.co
+                <strong><em>EAFIT:</em></strong> <a href="www.eafit.edu.co">www.eafit.edu.co</a><br>
                 
-                Universidad Nacional: medellin.unal.edu.co</p>
+                <strong><em>Universidad Nacional:</em></strong><a href="medellin.unal.edu.co"> medellin.unal.edu.co</a></p>
         </div>
     </section>
     <!-- Sección de Datos (Tabla) -->
@@ -195,154 +195,435 @@ En nuestras reuniones: ¿la gente se nutre o “engorda”?
         <div class="tab-pane fade show active" id="persona-natural" role="tabpanel" aria-labelledby="persona-natural-tab">
             <form id="formPersonaNatural" class="mt-4">
                 <div class="mb-3">
-                    <label for="pregunta1" class="form-label">1. ¿Tienes experiencia previa en emprendimiento?</label>
+                    <label for="pregunta1" class="form-label">1. La mayoría de las personas pueden ser confiables</label>
                     <select class="form-select" id="pregunta1">
-                        <option value="0">No</option>
-                        <option value="1">Sí, poca</option>
-                        <option value="2">Sí, moderada</option>
-                        <option value="3">Sí, mucha</option>
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
                     </select>
                 </div>
+                <!-- Pregunta 2 -->
                 <div class="mb-3">
-                    <label for="pregunta2" class="form-label">2. ¿Tienes acceso a recursos financieros?</label>
+                    <label for="pregunta2" class="form-label">2. La mayoría de las personas mienten si pueden beneficiarse de ello</label>
                     <select class="form-select" id="pregunta2">
-                        <option value="0">No</option>
-                        <option value="1">Sí, limitados</option>
-                        <option value="2">Sí, suficientes</option>
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
                     </select>
                 </div>
+
+                <!-- Pregunta 3 -->
                 <div class="mb-3">
-                    <label for="pregunta3" class="form-label">3. ¿Participas en redes de innovación?</label>
+                    <label for="pregunta3" class="form-label">3. Confío en otras personas</label>
                     <select class="form-select" id="pregunta3">
-                        <option value="0">No</option>
-                        <option value="1">Sí, ocasionalmente</option>
-                        <option value="2">Sí, frecuentemente</option>
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn btn-success">Calcular</button>
-            </form>
-            <div id="resultadoPersonaNatural" class="mt-4"></div>
+
+                <!-- Pregunta 4 -->
+                <div class="mb-3">
+                    <label for="pregunta4" class="form-label">4. Aquellos dedicados a causas desinteresadas a menudo son explotados por otros</label>
+                    <select class="form-select" id="pregunta4">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 5 -->
+                <div class="mb-3">
+                    <label for="pregunta5" class="form-label">5. ¿Cuánto tiempo te toma generar un nivel básico de confianza con una persona que acabas de conocer?</label>
+                    <select class="form-select" id="pregunta5">
+                        <option value="0">Menos de una semana</option>
+                        <option value="1">1-2 semanas</option>
+                        <option value="2">1 mes</option>
+                        <option value="3">Más de un mes</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 6 -->
+                <div class="mb-3">
+                    <label for="pregunta6" class="form-label">6. Puedo aceptar los fracasos como parte de un proceso de aprendizaje</label>
+                    <select class="form-select" id="pregunta6">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 7 -->
+                <div class="mb-3">
+                    <label for="pregunta7" class="form-label">7. Los fracasos a menudo conducen a resultados positivos a largo plazo</label>
+                    <select class="form-select" id="pregunta7">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 8 -->
+                <div class="mb-3">
+                    <label for="pregunta8" class="form-label">8. Supero rápidamente los contratiempos</label>
+                    <select class="form-select" id="pregunta8">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 9 -->
+                <div class="mb-3">
+                    <label for="pregunta9" class="form-label">9. Los fracasos permiten oportunidades para la reflexión y la consideración</label>
+                    <select class="form-select" id="pregunta9">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 10 -->
+                <div class="mb-3">
+                    <label for="pregunta10" class="form-label">10. Es importante para mí interactuar con personas que son diferentes a mí</label>
+                    <select class="form-select" id="pregunta10">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 11 -->
+                <div class="mb-3">
+                    <label for="pregunta11" class="form-label">11. Con frecuencia entro en contacto con personas que son diferentes a mí</label>
+                    <select class="form-select" id="pregunta11">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 12 -->
+                <div class="mb-3">
+                    <label for="pregunta12" class="form-label">12. Me siento cómodo conversando con personas que son diferentes a mí</label>
+                    <select class="form-select" id="pregunta12">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 13 -->
+                <div class="mb-3">
+                    <label for="pregunta13" class="form-label">13. Interactuar con otras personas me hace interesarme en cosas que suceden fuera de mi campo</label>
+                    <select class="form-select" id="pregunta13">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 14 -->
+                <div class="mb-3">
+                    <label for="pregunta14" class="form-label">14. Puedo tener éxito en cualquier empeño que me proponga</label>
+                    <select class="form-select" id="pregunta14">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 15 -->
+                <div class="mb-3">
+                    <label for="pregunta15" class="form-label">15. He podido superar con éxito muchos desafíos</label>
+                    <select class="form-select" id="pregunta15">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 16 -->
+                <div class="mb-3">
+                    <label for="pregunta16" class="form-label">16. Cuando enfrento tareas difíciles, estoy seguro de que las lograré</label>
+                    <select class="form-select" id="pregunta16">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 17 -->
+                <div class="mb-3">
+                    <label for="pregunta17" class="form-label">17. He logrado la mayoría de los objetivos que me he propuesto</label>
+                    <select class="form-select" id="pregunta17">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 18 -->
+                <div class="mb-3">
+                    <label for="pregunta18" class="form-label">18. Cuando veo una mejor manera de hacer algo, puedo influir en la "organización donde trabajo" o en las "personas a mi alrededor" para adoptar ese nuevo enfoque</label>
+                    <select class="form-select" id="pregunta18">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 19 -->
+                <div class="mb-3">
+                    <label for="pregunta19" class="form-label">19. Puedo priorizar el curso de acción más efectivo</label>
+                    <select class="form-select" id="pregunta19">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 20 -->
+                <div class="mb-3">
+                    <label for="pregunta20" class="form-label">20. Puedo asignar recursos adecuadamente</label>
+                    <select class="form-select" id="pregunta20">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 21 -->
+                <div class="mb-3">
+                    <label for="pregunta21" class="form-label">21. Soy adaptable a cambios imprevistos y hago ajustes cuando es necesario</label>
+                    <select class="form-select" id="pregunta21">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 22 -->
+                <div class="mb-3">
+                    <label for="pregunta22" class="form-label">22. Tengo una gran capacidad para juzgar qué cosas deben hacerse con perfección y cuáles solo necesitan completarse rápidamente</label>
+                    <select class="form-select" id="pregunta22">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 23 -->
+                <div class="mb-3">
+                    <label for="pregunta23" class="form-label">23. Hay momentos en los que tiene sentido colaborar con mis competidores</label>
+                    <select class="form-select" id="pregunta23">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 24 -->
+                <div class="mb-3">
+                    <label for="pregunta24" class="form-label">24. Una cooperación activa con mis colaboradores es importante para mí</label>
+                    <select class="form-select" id="pregunta24">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+
+                <!-- Pregunta 25 -->
+                <div class="mb-3">
+                    <label for="pregunta25" class="form-label">25. Una cooperación con uno de mis enemigos podría ser muy importante para mi empresa</label>
+                    <select class="form-select" id="pregunta25">
+                        <option value="0">Totalmente en desacuerdo</option>
+                        <option value="1">En desacuerdo</option>
+                        <option value="2">Neutral</option>
+                        <option value="3">De acuerdo</option>
+                        <option value="4">Totalmente de acuerdo</option>
+                    </select>
+                </div>
+                    <button type="submit" class="btn btn btn-success">Calcular</button>
+                </form>
+                <div id="resultadoPersonaNatural" class="mt-4"></div>
+    </div>
+<!-- Formulario para Líder de Empresa -->
+<div class="tab-pane fade" id="lider-empresa" role="tabpanel" aria-labelledby="lider-empresa-tab">
+    <form id="formLiderEmpresa" class="mt-4">
+        <!-- Pregunta 1 -->
+        <div class="mb-3">
+            <label for="pregunta1Empresa" class="form-label">1. ¿Cuántos empleados tiene tu empresa?</label>
+            <select class="form-select" id="pregunta1Empresa">
+                <option value="0">Menos de 10</option>
+                <option value="1">10-50</option>
+                <option value="2">Más de 50</option>
+            </select>
         </div>
 
-        <!-- Formulario para Líder de Empresa -->
-        <div class="tab-pane fade" id="lider-empresa" role="tabpanel" aria-labelledby="lider-empresa-tab">
-            <form id="formLiderEmpresa" class="mt-4">
+        <!-- Pregunta 2 -->
+        <div class="mb-3">
+            <label for="pregunta2Empresa" class="form-label">2. ¿Contamos con personas talentosas que verdaderamente marquen una diferencia en lo que hacen?</label>
+            <select class="form-select" id="pregunta2Empresa">
+                <option value="0">No</option>
+                <option value="1">Sí</option>
+            </select>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="mb-3">
+            <label for="pregunta3Empresa" class="form-label">3. ¿Nos resulta sencillo armar equipos espontáneos para encarar desafíos puntuales cuando la realidad lo exige o las oportunidades aparecen?</label>
+            <select class="form-select" id="pregunta3Empresa">
+                <option value="0">No</option>
+                <option value="1">Sí, ocasionalmente</option>
+                <option value="2">Sí, frecuentemente</option>
+            </select>
+        </div>
+                
                 <div class="mb-3">
-                    <label for="pregunta1Empresa" class="form-label">1. ¿Cuántos empleados tiene tu empresa?</label>
-                    <select class="form-select" id="pregunta1Empresa">
-                        <option value="0">Menos de 10</option>
-                        <option value="1">10-50</option>
-                        <option value="2">Más de 50</option>
+                    <label for="pregunta4Empresa" class="form-label">4. En nuestras reuniones: ¿la gente se nutre o “engorda”?</label>
+                    <select class="form-select" id="pregunta4Empresa">
+                        <option value="0">Engorda</option>
+                        <option value="1">Se nutre</option>
                     </select>
                 </div>
+                
                 <div class="mb-3">
-                    <label for="pregunta2Empresa" class="form-label">2. ¿¿Nos resulta sencillo armar equipos espontáneos para encarar desafíos puntuales cuando la realidad lo exige o las oportunidades aparecen?</label>
-                    <select class="form-select" id="pregunta2Empresa">
+                    <label for="pregunta5Empresa" class="form-label">5. ¿Capacitamos en algo que otros no capaciten?</label>
+                    <select class="form-select" id="pregunta5Empresa">
                         <option value="0">No</option>
                         <option value="1">Sí</option>
-                        <option value="2">Sí, fácil</option>
                     </select>
                 </div>
+                
                 <div class="mb-3">
-                    <label for="pregunta3Empresa" class="form-label">3. ¿Inviertes en investigación y desarrollo?</label>
-                    <select class="form-select" id="pregunta3Empresa">
+                    <label for="pregunta6Empresa" class="form-label">6. ¿Propiciamos la circulación formal de muchas ideas aunque no todas se concreten?</label>
+                    <select class="form-select" id="pregunta6Empresa">
                         <option value="0">No</option>
-                        <option value="1">Sí, ocasionalmente</option>
-                        <option value="2">Sí, frecuentemente</option>
+                        <option value="1">Sí</option>
                     </select>
                 </div>
+                
                 <div class="mb-3">
-                    <label for="pregunta4Empresa" class="form-label">4. ¿Cuántos empleados tiene tu empresa?</label>
-                    <select class="form-select" id="pregunta1Empresa">
-                        <option value="0">Menos de 10</option>
-                        <option value="1">10-50</option>
-                        <option value="2">Más de 50</option>
+                    <label for="pregunta7Empresa" class="form-label">7. ¿Tenemos en nuestro haber una buena cantidad de ideas efectivamente aplicadas en los últimos dos años?</label>
+                    <select class="form-select" id="pregunta7Empresa">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
                     </select>
                 </div>
+                
                 <div class="mb-3">
-                    <label for="pregunta5Empresa" class="form-label">5. ¿Cuántos empleados tiene tu empresa?</label>
-                    <select class="form-select" id="pregunta1Empresa">
-                        <option value="0">Menos de 10</option>
-                        <option value="1">10-50</option>
-                        <option value="2">Más de 50</option>
+                    <label for="pregunta8Empresa" class="form-label">8. ¿Hemos logrado impactos que signifiquen transformaciones interesantes?</label>
+                    <select class="form-select" id="pregunta8Empresa">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
                     </select>
                 </div>
+                
                 <div class="mb-3">
-                    <label for="pregunta6Empresa" class="form-label">6. ¿Cuántos empleados tiene tu empresa?</label>
-                    <select class="form-select" id="pregunta1Empresa">
-                        <option value="0">Menos de 10</option>
-                        <option value="1">10-50</option>
-                        <option value="2">Más de 50</option>
+                    <label for="pregunta9Empresa" class="form-label">9. ¿Sabemos copiar?</label>
+                    <select class="form-select" id="pregunta9Empresa">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
                     </select>
                 </div>
+                
                 <div class="mb-3">
-                    <label for="pregunta7Empresa" class="form-label">7. ¿Cuántos empleados tiene tu empresa?</label>
-                    <select class="form-select" id="pregunta1Empresa">
-                        <option value="0">Menos de 10</option>
-                        <option value="1">10-50</option>
-                        <option value="2">Más de 50</option>
+                    <label for="pregunta10Empresa" class="form-label">10. ¿Nos han copiado lo suficiente?</label>
+                    <select class="form-select" id="pregunta10Empresa">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
                     </select>
-                    <div class="mb-3">
-                        <label for="pregunta8Empresa" class="form-label">8. ¿Cuántos empleados tiene tu empresa?</label>
-                        <select class="form-select" id="pregunta1Empresa">
-                            <option value="0">Menos de 10</option>
-                            <option value="1">10-50</option>
-                            <option value="2">Más de 50</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pregunta9Empresa" class="form-label">9. ¿Cuántos empleados tiene tu empresa?</label>
-                        <select class="form-select" id="pregunta1Empresa">
-                            <option value="0">Menos de 10</option>
-                            <option value="1">10-50</option>
-                            <option value="2">Más de 50</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pregunta10Empresa" class="form-label">10. ¿Cuántos empleados tiene tu empresa?</label>
-                        <select class="form-select" id="pregunta1Empresa">
-                            <option value="0">Menos de 10</option>
-                            <option value="1">10-50</option>
-                            <option value="2">Más de 50</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pregunta11Empresa" class="form-label">11. ¿Cuántos empleados tiene tu empresa?</label>
-                        <select class="form-select" id="pregunta1Empresa">
-                            <option value="0">Menos de 10</option>
-                            <option value="1">10-50</option>
-                            <option value="2">Más de 50</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pregunta12Empresa" class="form-label">12. ¿Cuántos empleados tiene tu empresa?</label>
-                        <select class="form-select" id="pregunta1Empresa">
-                            <option value="0">Menos de 10</option>
-                            <option value="1">10-50</option>
-                            <option value="2">Más de 50</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pregunta13Empresa" class="form-label">13. ¿Cuántos empleados tiene tu empresa?</label>
-                        <select class="form-select" id="pregunta1Empresa">
-                            <option value="0">Menos de 10</option>
-                            <option value="1">10-50</option>
-                            <option value="2">Más de 50</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="pregunta14Empresa" class="form-label">14. ¿Cuántos empleados tiene tu empresa?</label>
-                        <select class="form-select" id="pregunta1Empresa">
-                            <option value="0">Menos de 10</option>
-                            <option value="1">10-50</option>
-                            <option value="2">Más de 50</option>
-                        </select>
-                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="pregunta11Empresa" class="form-label">11. ¿Nos atrevemos a lo que otros no se atreven?</label>
+                    <select class="form-select" id="pregunta11Empresa">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="pregunta12Empresa" class="form-label">12. ¿Trabajamos con socios y proveedores que valoran la originalidad, la innovación y la capacidad emprendedora?</label>
+                    <select class="form-select" id="pregunta12Empresa">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="pregunta13Empresa" class="form-label">13. ¿Trabajamos con clientes o públicos exigentes en cuanto a su originalidad y originales ellos mismos?</label>
+                    <select class="form-select" id="pregunta13Empresa">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="pregunta14Empresa" class="form-label">14. ¿Contamos con una buena cantidad de intangibles en nombres, marcas, logotipos, presencia en redes sociales, patentes, derechos de autor, etc.?</label>
+                    <select class="form-select" id="pregunta14Empresa">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="pregunta15Empresa" class="form-label">15. ¿Figura, entre los valores que priorizamos, alguno vinculado a la creatividad o a la innovación?</label>
+                    <select class="form-select" id="pregunta15Empresa">
+                        <option value="0">No</option>
+                        <option value="1">Sí</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-success">Calcular</button>
             </form>
-            <div id="resultadoLiderEmpresa" class="mt-4"></div>
-        </div>
+            <div id="resultadoLiderEmpresa" class="mt-4"></div>  
     </div>
 </section>
 
