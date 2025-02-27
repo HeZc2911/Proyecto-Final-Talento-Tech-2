@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Comunitaria - Innovación y Emprendimiento en Antioquia</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Red Comunitaria - Innovación y Emprendimiento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!-- Incluir jQuery antes de DataTables -->
@@ -16,7 +17,6 @@
 </head>
 
 <body>
-    <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg border-bottom border-body fixed-top">
         <div class="container">
             <a id="t_img" class="navbar-brand" href="#">
@@ -31,9 +31,6 @@
                 <ul class="navbar-nav ms-auto gap-3">
                     <li class="nav-item">
                         <a class="nav-link hover-underline" href="#inicio">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hover-underline" href="#informacion">Información</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link hover-underline" href="#datos">Datos</a>
@@ -52,16 +49,14 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="inicio" class="hero-section d-flex align-items-center text-white text-center">
+    <header class="hero-section d-flex align-items-center text-white text-center">
         <div class="container">
-            <h1 class="display-4 fw-bold">Innovación y Emprendimiento en Antioquia</h1>
-            <p class="lead">Descubre datos, tendencias y oportunidades para innovar y emprender en tu región.</p>
-            <a id="herobtn" href="#informacion" class="btn btn-lg mt-3">Explorar más</a>
+            <h1 class="display-4 fw-bold">Innovación y Emprendimiento en Colombia</h1>
+            <p class="lead">Descubre datos, tendencias y oportunidades para innovar y emprender en tu ciudad.</p>
+            <a id="herobtn" href="#datos" class="btn btn-lg mt-3">Explorar más</a>
         </div>
     </header>
 
-    <!-- Sección de Información de Interés (como antes) -->
     <section id="ftxt" class="container py-5">
         <div class="text-start mb-4 d-block">
             <h3>
@@ -75,108 +70,119 @@
                 con un enfoque en el desarrollo de capacidades para la internacionalización,
                 por medio de nuestra representación de la Red Europea de Empresas.
             </p>
+            <h4><strong>Red de organizaciones para fortalecer el emprendimiento en antioquia</strong></h4>
+            <p> Instituciones y Organizaciones
+                Ruta N: Es el centro de innovación y negocios de Medellín. Promueve la innovación y el emprendimiento en la ciudad y el departamento. Puedes visitar su página web para conocer programas, eventos y oportunidades.
+                
+                Sitio web: www.rutanmedellin.org
+                
+                Cámara de Comercio de Medellín para Antioquia: Ofrece programas de apoyo a emprendedores y empresas innovadoras.
+                
+                Sitio web: www.camaramedellin.com.co
+                
+                Universidades: Instituciones como la Universidad de Antioquia, EAFIT, y la Universidad Nacional tienen centros de investigación y programas de innovación.
+                
+                Universidad de Antioquia: www.udea.edu.co
+                
+                EAFIT: www.eafit.edu.co
+                
+                Universidad Nacional: medellin.unal.edu.co</p>
         </div>
     </section>
 
-    <!-- Sección de Datos (Tabla) -->
     <section id="datos" class="container py-5">
+<<<<<<< HEAD
         <div class="table-responsive">
             <section id="tablaDatos" class="container py-5">
                 <h2 class="text-center mb-4">Datos Históricos de Emprendimiento</h2>
                 <table id="dataTable" class="display" style="width:100%"></table>
             </section>
+=======
+        <h2 class="text-center mb-4">Datos sobre Emprendimiento</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Conceptos y Definiciones</h3>
+                <p>El emprendimiento es el proceso de diseñar, lanzar y gestionar un nuevo negocio, que generalmente comienza como una pequeña empresa o startup, ofreciendo un producto, servicio o proceso innovador.</p>
+                <p>La innovación es la implementación de nuevas ideas que generan valor, ya sea a través de nuevos productos, servicios, procesos o modelos de negocio.</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Enlaces de Interés</h3>
+                <ul>
+                    <li><a href="https://www.mincit.gov.co" target="_blank">Ministerio de Comercio, Industria y Turismo</a></li>
+                    <li><a href="https://www.innpulsa.gov.co" target="_blank">Innpulsa Colombia</a></li>
+                    <li><a href="https://www.datos.gov.co" target="_blank">Datos Abiertos Colombia</a></li>
+                </ul>
+            </div>
+>>>>>>> a39e8b7089ae6a254c4b16ace76c6e5746ef40cf
         </div>
     </section>
 
-    <!-- Sección de Gráficos -->
     <section id="graficos" class="container py-5">
-        <h2 class="text-center mb-4">Gráficos de Innovación y Emprendimiento</h2>
+        <h2 class="text-center mb-4">Gráficos de Emprendimiento e Innovación</h2>
         <div class="row">
             <div class="col-md-6">
                 <h3>Gráfico de Barras: Emprendimiento Femenino</h3>
                 <canvas id="barChart"></canvas>
             </div>
             <div class="col-md-6">
-                <h3>Gráfico de Torta: Tipos de Emprendimiento</h3>
+                <h3>Gráfico de Torta: Tipos de Emprendimiento en Colombia</h3>
                 <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>Gráfico de Líneas: Tendencia de la Innovación</h3>
+                <canvas id="lineChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <h3>Gráfico de Área: Comparación Emprendimiento vs Innovación</h3>
+                <canvas id="areaChart"></canvas>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Encuesta Desplegable -->
     <section id="encuesta" class="container py-5">
-        <h2 class="text-center mb-4">Encuesta de Nivel de Innovación</h2>
-        <button class="btn btn-primary w-100 mb-4" onclick="toggleEncuesta()">Mostrar/Ocultar Encuesta</button>
-        <form id="encuestaForm" style="display: none;">
+        <h2 class="text-center mb-4">Encuesta de Capacidad de Emprendimiento</h2>
+        <form id="encuestaForm">
             <div class="mb-3">
-                <label for="pregunta1" class="form-label">1. ¿Tienes experiencia en innovación?</label>
+                <label for="pregunta1" class="form-label">1. ¿Tienes experiencia previa en emprendimiento?</label>
                 <select class="form-select" id="pregunta1">
+                    <option value="1">Sí</option>
                     <option value="0">No</option>
-                    <option value="1">Sí, poca</option>
-                    <option value="2">Sí, moderada</option>
-                    <option value="3">Sí, mucha</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="pregunta2" class="form-label">2. ¿Tienes acceso a recursos para innovar?</label>
+                <label for="pregunta2" class="form-label">2. ¿Tienes acceso a recursos financieros?</label>
                 <select class="form-select" id="pregunta2">
+                    <option value="1">Sí</option>
                     <option value="0">No</option>
-                    <option value="1">Sí, limitados</option>
-                    <option value="2">Sí, suficientes</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="pregunta3" class="form-label">3. ¿Participas en redes de innovación?</label>
+                <label for="pregunta3" class="form-label">3. ¿Tienes una red de contactos que te apoyen?</label>
                 <select class="form-select" id="pregunta3">
+                    <option value="1">Sí</option>
                     <option value="0">No</option>
-                    <option value="1">Sí, ocasionalmente</option>
-                    <option value="2">Sí, frecuentemente</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Calcular Nivel de Innovación</button>
+            <button type="submit" class="btn btn-primary">Calcular</button>
         </form>
         <div id="resultadoEncuesta" class="mt-4"></div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer bg-dark text-white text-center py-4">
         <div class="container">
-            <p>&copy; 2023 Red Comunitaria. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Red Comunitaria. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/asset.js"></script>
-    <script>
-        // Función para mostrar/ocultar la encuesta
-        function toggleEncuesta() {
-            const form = document.getElementById('encuestaForm');
-            form.style.display = form.style.display === 'none' ? 'block' : 'none';
-        }
-
-        // Función para calcular el nivel de innovación
-        document.getElementById('encuestaForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const pregunta1 = parseInt(document.getElementById('pregunta1').value);
-            const pregunta2 = parseInt(document.getElementById('pregunta2').value);
-            const pregunta3 = parseInt(document.getElementById('pregunta3').value);
-
-            const total = pregunta1 + pregunta2 + pregunta3;
-            let resultado = '';
-
-            if (total >= 6) {
-                resultado = '¡Tienes un alto nivel de innovación!';
-            } else if (total >= 3) {
-                resultado = 'Tienes un nivel moderado de innovación.';
-            } else {
-                resultado = 'Necesitas más recursos y apoyo para innovar.';
-            }
-
-            document.getElementById('resultadoEncuesta').textContent = resultado;
-        });
-    </script>
 </body>
+<<<<<<< HEAD
 
 </html>
+=======
+</html> 
+>>>>>>> a39e8b7089ae6a254c4b16ace76c6e5746ef40cf
