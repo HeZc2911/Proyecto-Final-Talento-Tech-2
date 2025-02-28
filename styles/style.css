@@ -206,6 +206,13 @@ body {
 #datos ul li a:hover {
     color: var(--color-secondary);
 }
+#resultadoPersonaNatural{
+
+    color: var(--color-black);
+}
+#resultadoLiderEmpresa {
+    color: var(--color-black);
+}
 
 /* Estilos para la sección de gráficos */
 #graficos {
@@ -269,9 +276,12 @@ label {
 #encuestaForm .form-select {
     font-size: 1rem;
     padding: 10px;
-    border: 1px solid var(--color-primary);
+    border: 2px solid var(--color-primary);
     border-radius: 5px;
     margin-bottom: 20px;
+}
+.form-select {
+ color: #adaaaa;
 }
 
 #encuestaForm .btn-primary {
