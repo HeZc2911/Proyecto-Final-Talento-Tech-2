@@ -1,14 +1,112 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Modificaciones en el CSS (styles/style.css) */
 
-/* Colores principales */
+/* Actualizar paleta de colores */
 :root {
-    --color-primary: #090a0a; /* Azul principal */
-    --color-secondary: #0bb705fe; /* Azul claro */
-    --color-dark: #ffffff; /* Azul oscuro */
-    --color-light: #d6e7f6; /* Fondo claro */
-    --color-white: #ffffff; /* Blanco */
-    --color-black: #000000; /* Negro */
-    --color-verde: #00fe59; /* Negro */
+    --color-primary: #1A2E35;    /* Verde oscuro principal */
+    --color-secondary: #4CAF50;  /* Verde vibrante */
+    --color-accent: #FFC107;     /* Amarillo para acentos */
+    --color-dark: #0D1A1E;       /* Fondo oscuro */
+    --color-light: #F5F5F5;      /* Fondo claro */
+    --color-text: #333;          /* Texto principal */
+}
+/* Mejorar la navegación */
+.navbar {
+    background: rgba(26, 46, 53, 0.95) !important;
+    backdrop-filter: blur(5px);
+}
+
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+
+/* Nueva estructura para secciones */
+section {
+    padding: 4rem 0;
+    position: relative;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: var(--color-secondary);
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Tarjetas modernas */
+.card-custom {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+}
+
+/* Formularios más modernos */
+.form-select, 
+.form-control {
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus, 
+.form-control:focus {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.25);
+}
+
+/* Botones mejorados */
+.btn-success {
+    background: var(--color-secondary);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background: #45A049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+/* Pie de página rediseñado */
+
+
+
+
+/* Efectos de hover para enlaces */
+a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    position: relative;
+}
+
+a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    animation: underline 0.3s ease;
 }
 
 /* Reset básico */
@@ -19,9 +117,9 @@
 }
 
 body {
+    background-color: var(--color-light);
+    color: var(--color-text);
     font-family: 'Poppins', sans-serif;
-    background-color: var(--color-black);
-    color: var(--color-white);
     scroll-behavior: smooth;
     line-height: 1.6;
 }
@@ -94,7 +192,8 @@ body {
 .hero-section {
     position: relative;
     height: 100vh;
-    background: url('img/parallaximagen.jpg') center/cover no-repeat fixed;
+    height: 70vh;
+    background: linear-gradient(135deg, rgba(26, 46, 53, 0.9), rgba(76, 175, 80, 0.7)), url('img/parallaximagen.jpg') center/cover fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,7 +213,8 @@ body {
 }
 
 .hero-section h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-weight: 700;
     margin-bottom: 20px;
 }
@@ -197,14 +297,25 @@ body {
 }
 
 #datos ul li a {
-    color: var(--color-dark);
+    color: var(--color-secondary);
     text-decoration: none;
+    position: relative;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
 #datos ul li a:hover {
     color: var(--color-secondary);
+}
+#datos ul li a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    animation: underline 0.3s ease;
 }
 #resultadoPersonaNatural{
 
@@ -282,7 +393,11 @@ label {
     margin-bottom: 20px;
 }
 .form-select {
- color: #adaaaa;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.3s ease;
+    color: #adaaaa;
 }
 
 #encuestaForm .btn-primary {
@@ -324,12 +439,23 @@ label {
 /* Estilos para el footer */
 /* Estilos generales del footer */
 footer {
-    background-color: #f4f4f4;
+    background: var(--color-primary);
+    color: white;
+    position: relative;
+    margin-top: 4rem;
     border-top: 1px solid #ddd;
-    padding: 40px 20px;
     font-family: Arial, sans-serif;
   }
-  
+footer h4, p
+  footer::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to top, var(--color-primary), transparent);
+}
   /* Contenedor principal del footer */
   .footer-main {
     display: flex;
@@ -353,7 +479,10 @@ footer {
   .footer-desc p {
     color:var(--color-black);
   }
-  
+  .footer-logo img {
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
   /* Estilos para la sección derecha */
   .right.footer-subscribe {
     flex: 1;
@@ -419,17 +548,32 @@ footer {
   }
   
   .footer-bottom .go-top a {
-    color: #007bff;
+    color: var(--color-secondary);
     text-decoration: none;
+    position: relative;
     font-size: 14px;
   }
   
   .footer-bottom .go-top a:hover {
     text-decoration: underline;
-  } /* fin footer */
+  } 
+  .footer-bottom .go-top a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    animation: underline 0.3s ease;
+}
+  /* fin footer */
 /* Personaliza el estilo de DataTables */
 #dataTable {
     width: 100% !important;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     border-collapse: collapse;
 }
@@ -482,4 +626,9 @@ footer {
 
 #encuestaForm .btn-primary:hover {
     background-color: #1f375b;
+}
+
+@keyframes underline {
+    from { width: 0 }
+    to { width: 100% }
 }
