@@ -2,13 +2,12 @@
 
 /* Colores principales */
 :root {
-    --color-primary: #090a0a; /* Azul principal */
-    --color-secondary: #0bb705fe; /* Azul claro */
-    --color-dark: #ffffff; /* Azul oscuro */
-    --color-light: #d6e7f6; /* Fondo claro */
-    --color-white: #ffffff; /* Blanco */
-    --color-black: #000000; /* Negro */
-    --color-verde: #00fe59; /* Negro */
+    --color-primary: #1A2E35;    /* Verde oscuro principal */
+    --color-secondary: #4CAF50;  /* Verde vibrante */
+    --color-accent: #FFC107;     /* Amarillo para acentos */
+    --color-dark: #0D1A1E;       /* Fondo oscuro */
+    --color-light: #F5F5F5;      /* Fondo claro */
+    --color-text: #333;          /* Texto principal */
 }
 
 /* Reset básico */
@@ -26,14 +25,33 @@ body {
     line-height: 1.6;
 }
 
+a{
+    color: var(--color-secondary);
+    text-decoration: none;
+    position: relative;
+}
+
+a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    animation: underline 0.3s ease;
+}
+
 /* Estilos para la barra de navegación */
 .navbar {
-    background-color: var(--color-primary) !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: rgba(26, 46, 53, 0.95) !important;
+    backdrop-filter: blur(5px);
+    color: var(--color-light);
 }
 
 .navbar .navbar-brand,
 .navbar .nav-link {
+    transition: transform 0.3s ease;
     color: var(--color-white) !important;
     font-weight: 500;
 }
@@ -43,7 +61,12 @@ body {
     font-size: 1.8rem;
     letter-spacing: 2px;
 }
-
+.navbar-brand img {
+    transition: transform 0.3s ease;
+}
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
 .navbar .nav-link {
     font-size: 1rem;
     margin: 0 10px;
@@ -90,11 +113,41 @@ body {
     transform: scaleX(1);
 }
 
+section {
+    padding: 4rem 0;
+    position: relative;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: var(--color-secondary);
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Tarjetas modernas */
+.card-custom {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+}
 /* Estilos para el hero section */
 .hero-section {
+    height: 70vh;
+    background: linear-gradient(135deg, rgba(26, 46, 53, 0.9), rgba(76, 175, 80, 0.7)),
+                url('img/parallaximagen.jpg') center/cover fixed;
     position: relative;
     height: 100vh;
-    background: url('img/parallaximagen.jpg') center/cover no-repeat fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,7 +167,8 @@ body {
 }
 
 .hero-section h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     font-weight: 700;
     margin-bottom: 20px;
 }
@@ -197,14 +251,23 @@ body {
 }
 
 #datos ul li a {
-    color: var(--color-dark);
-    text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
+    color: var(--color-secondary);
+    text-decoration: none;
+    position: relative;
 }
 
 #datos ul li a:hover {
     color: var(--color-secondary);
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    animation: underline 0.3s ease;
 }
 #resultadoPersonaNatural{
 
@@ -218,6 +281,7 @@ body {
 /* Estilos para la sección de gráficos */
 #graficos {
     background-color: var(--color-primary);
+
     padding: 50px 20px;
     text-align: center;
 }
@@ -226,14 +290,14 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 40px;
-    color: var(--color-dark);
+    color: var(--color-light);
 }
 
 #graficos h3 {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 20px;
-    color: var(--color-dark);
+    color: var(--color-light);
 }
 
 #graficos canvas {
@@ -281,10 +345,21 @@ label {
     border-radius: 5px;
     margin-bottom: 20px;
 }
-.form-select {
- color: #adaaaa;
+/* Formularios más modernos */
+.form-select{
+    color: #adaaaa;
+}
+.form-select, .form-control {
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    transition: all 0.3s ease;
 }
 
+.form-select:focus, .form-control:focus {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.25);
+}
 #encuestaForm .btn-primary {
     background-color: var(--color-primary);
     border: none;
@@ -324,12 +399,23 @@ label {
 /* Estilos para el footer */
 /* Estilos generales del footer */
 footer {
-    background-color: #f4f4f4;
+    background: var(--color-primary);
+    color: white;
+    position: relative;
+    margin-top: 4rem;
     border-top: 1px solid #ddd;
     padding: 40px 20px;
     font-family: Arial, sans-serif;
   }
-  
+  footer::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to top, var(--color-primary), transparent);
+}
   /* Contenedor principal del footer */
   .footer-main {
     display: flex;
@@ -349,6 +435,8 @@ footer {
   
   .footer-logo {
     margin-bottom: 20px;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
   }
   .footer-desc p {
     color:var(--color-black);
@@ -418,14 +506,22 @@ footer {
     margin-top: 10px;
   }
   
-  .footer-bottom .go-top a {
-    color: #007bff;
-    text-decoration: none;
+  .footer-bottom .go-top a{
     font-size: 14px;
+    color: var(--color-secondary);
+    text-decoration: none;
+    position: relative;
   }
   
   .footer-bottom .go-top a:hover {
-    text-decoration: underline;
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    animation: underline 0.3s ease;
   } /* fin footer */
 /* Personaliza el estilo de DataTables */
 #dataTable {
@@ -482,4 +578,22 @@ footer {
 
 #encuestaForm .btn-primary:hover {
     background-color: #1f375b;
+}
+.btn-success {
+    background: var(--color-secondary);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background: #45A049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+@keyframes underline {
+    from { width: 0 }
+    to { width: 100% }
 }
