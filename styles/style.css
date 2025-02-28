@@ -209,6 +209,7 @@ body {
 #resultadoPersonaNatural{
 
     color: var(--color-black);
+    font-weight: bold;
 }
 #resultadoLiderEmpresa {
     color: var(--color-black);
@@ -439,7 +440,7 @@ footer {
 }
 
 #dataTable th {
-    background-color: #6db4ff;
+    background-color: var(--color-secondary);
     color: white;
 }
 
