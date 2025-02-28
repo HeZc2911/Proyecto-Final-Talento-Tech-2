@@ -59,60 +59,61 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     // Datos estáticos para la tendencia de la innovación (1998-2022)
-    const tendenciaInnovacion = {
-        "1998": 5,
-        "1999": 7,
-        "2000": 10,
-        "2001": 12,
-        "2002": 15,
-        "2003": 18,
-        "2004": 20,
-        "2005": 22,
-        "2006": 25,
-        "2007": 28,
-        "2008": 30,
-        "2009": 32,
-        "2010": 35,
-        "2011": 40,
-        "2012": 45,
-        "2013": 50,
-        "2014": 55,
-        "2015": 60,
-        "2016": 65,
-        "2017": 70,
-        "2018": 75,
-        "2019": 80,
-        "2020": 85,
-        "2021": 90,
-        "2022": 95
-    };
+// Datos estáticos para la tendencia de la innovación (1998-2022)
+const tendenciaInnovacion = {
+    "1998": 5,
+    "1999": 7,
+    "2000": 10,
+    "2001": 12,
+    "2002": 15,
+    "2003": 18,
+    "2004": 20,
+    "2005": 22,
+    "2006": 25,
+    "2007": 28,
+    "2008": 30,
+    "2009": 32,
+    "2010": 35,
+    "2011": 40,
+    "2012": 45,
+    "2013": 50,
+    "2014": 55,
+    "2015": 60,
+    "2016": 65,
+    "2017": 70,
+    "2018": 75,
+    "2019": 80,
+    "2020": 100, // Pico en 2020 (coherente con la base de datos)
+    "2021": 85,  // Disminución después del pico
+    "2022": 90   // Ligero aumento
+};
 
-    // Datos estáticos para la comparación emprendimiento vs innovación (2000-2022)
-    const comparacion = {
-        "2000": { emprendimiento: 10, innovacion: 5 },
-        "2001": { emprendimiento: 12, innovacion: 6 },
-        "2002": { emprendimiento: 15, innovacion: 7 },
-        "2003": { emprendimiento: 18, innovacion: 8 },
-        "2004": { emprendimiento: 20, innovacion: 10 },
-        "2005": { emprendimiento: 22, innovacion: 12 },
-        "2006": { emprendimiento: 25, innovacion: 15 },
-        "2007": { emprendimiento: 28, innovacion: 18 },
-        "2008": { emprendimiento: 30, innovacion: 20 },
-        "2009": { emprendimiento: 32, innovacion: 22 },
-        "2010": { emprendimiento: 35, innovacion: 25 },
-        "2011": { emprendimiento: 40, innovacion: 28 },
-        "2012": { emprendimiento: 45, innovacion: 30 },
-        "2013": { emprendimiento: 50, innovacion: 32 },
-        "2014": { emprendimiento: 55, innovacion: 35 },
-        "2015": { emprendimiento: 60, innovacion: 40 },
-        "2016": { emprendimiento: 65, innovacion: 45 },
-        "2017": { emprendimiento: 70, innovacion: 50 },
-        "2018": { emprendimiento: 75, innovacion: 55 },
-        "2019": { emprendimiento: 80, innovacion: 60 },
-        "2020": { emprendimiento: 85, innovacion: 65 },
-        "2021": { emprendimiento: 90, innovacion: 70 },
-        "2022": { emprendimiento: 95, innovacion: 75 }
-    };
+// Datos estáticos para la comparación emprendimiento vs innovación (2000-2022)
+const comparacion = {
+    "2000": { emprendimiento: 10, innovacion: 5 },
+    "2001": { emprendimiento: 12, innovacion: 6 },
+    "2002": { emprendimiento: 15, innovacion: 7 },
+    "2003": { emprendimiento: 18, innovacion: 8 },
+    "2004": { emprendimiento: 20, innovacion: 10 },
+    "2005": { emprendimiento: 22, innovacion: 12 },
+    "2006": { emprendimiento: 25, innovacion: 15 },
+    "2007": { emprendimiento: 28, innovacion: 18 },
+    "2008": { emprendimiento: 30, innovacion: 20 },
+    "2009": { emprendimiento: 32, innovacion: 22 },
+    "2010": { emprendimiento: 35, innovacion: 25 },
+    "2011": { emprendimiento: 40, innovacion: 28 },
+    "2012": { emprendimiento: 45, innovacion: 30 },
+    "2013": { emprendimiento: 50, innovacion: 32 },
+    "2014": { emprendimiento: 55, innovacion: 35 },
+    "2015": { emprendimiento: 60, innovacion: 40 },
+    "2016": { emprendimiento: 65, innovacion: 45 },
+    "2017": { emprendimiento: 100, innovacion: 50 }, // Pico de emprendimiento en 2017
+    "2018": { emprendimiento: 75, innovacion: 55 },
+    "2019": { emprendimiento: 80, innovacion: 60 },
+    "2020": { emprendimiento: 85, innovacion: 100 }, // Pico de innovación en 2020
+    "2021": { emprendimiento: 90, innovacion: 85 },
+    "2022": { emprendimiento: 95, innovacion: 90 }
+};
 
     // Generar datos para gráficos
     const emprendimientoFemenino = procesarEmprendimientoFemenino([...mujeresData, ...juvenilData]);

@@ -638,13 +638,18 @@ https://www.datos.gov.co/Comercio-Industria-y-Turismo/ACTIVIDADES-DE-EMPRENDIMIE
                 <p style="color: white;">Ofrecer una visión comprensiva y práctica que respalde la transición hacia un futuro energético más sostenible y justo. Este sitio web hace parte del trabajo final de TalentoTech2.</p>
 
                 <div class="subscribe-form">
-                    <form id="mc-form" class="group" novalidate="true">
-                        <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Ingrese su email" required="">
-                        <input type="submit" name="subscribe" value="Subscribe">
-                        <label for="mc-email" class="subscribe-message"></label>
+                    <form action="https://formspree.io/f/mldgqjlr" method="POST">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Tu correo:</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Un mensaje:</label>
+                            <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Enviar</button>
                     </form>
                 </div>
-
             </div>
 
         </div> <!-- end footer-main -->

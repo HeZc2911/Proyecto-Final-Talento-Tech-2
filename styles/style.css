@@ -593,6 +593,57 @@ footer {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
 }
+/* Estilos para el formulario de contacto */
+.subscribe-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.subscribe-form label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--color-light);
+    font-weight: 500;
+}
+
+.subscribe-form input[type="email"],
+.subscribe-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid var(--color-secondary);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-light);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.subscribe-form input[type="email"]:focus,
+.subscribe-form textarea:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.25);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.subscribe-form button[type="submit"] {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-form button[type="submit"]:hover {
+    background-color: var(--color-accent);
+}
 @keyframes underline {
     from { width: 0 }
     to { width: 100% }
