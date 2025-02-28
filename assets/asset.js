@@ -1,109 +1,185 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
+    // URLs de los archivos JSON
+    const urls = {
+        mujeres: 'assets/Dbs/Asociaciones_Casa_de_la_Mujer_-_Cota.json',
+        juvenil: 'assets/Dbs/emprendimiento_juvenil.json',
+        negocios: 'assets/Dbs/Negocios_Verdes_20250227.json',
+        csv: 'assets/Dbs/csvjson.json'
+    };
+
+    // Cargar datos JSON
+    async function cargarDatos(url) {
+        try {
+            const response = await fetch(url);
+            return await response.json();
+        } catch (error) {
+            console.error('Error al cargar datos de:', url, error);
+            return [];
+        }
+    }
+
+    // Obtener datos
+    const [mujeresData, juvenilData, negociosData, csvData] = await Promise.all([
+        cargarDatos(urls.mujeres),
+        cargarDatos(urls.juvenil),
+        cargarDatos(urls.negocios),
+        cargarDatos(urls.csv)
+    ]);
+
+    // Procesar datos para gráficos
+    function procesarEmprendimientoFemenino(data) {
+        const tipos = {};
+        data.forEach(d => {
+            if (d["GENERO ASOCIADOS"] === "FEMENINO" || d["GENERO"] === "Femenino") {
+                const tipo = d["NOMBRE DE LA ACTIVIDAD"] || "Otros";
+                tipos[tipo] = (tipos[tipo] || 0) + 1;
+            }
+        });
+        return tipos;
+    }
+
+    function procesarTiposEmprendimiento(data) {
+        const tipos = {};
+        data.forEach(d => {
+            const tipo = d["NOMBRE DE LA ACTIVIDAD"] || d["tipo_de_emprendimiento"] || "Otros";
+            tipos[tipo] = (tipos[tipo] || 0) + 1;
+        });
+
+        // Agrupar tipos con pocas ocurrencias en "Otros"
+        const filteredTipos = {};
+        Object.keys(tipos).forEach(key => {
+            if (tipos[key] > 1) {
+                filteredTipos[key] = tipos[key];
+            } else {
+                filteredTipos["Otros"] = (filteredTipos["Otros"] || 0) + tipos[key];
+            }
+        });
+
+        return filteredTipos;
+    }
+
+    // Datos estáticos para la tendencia de la innovación (1998-2022)
+    const tendenciaInnovacion = {
+        "1998": 5,
+        "1999": 7,
+        "2000": 10,
+        "2001": 12,
+        "2002": 15,
+        "2003": 18,
+        "2004": 20,
+        "2005": 22,
+        "2006": 25,
+        "2007": 28,
+        "2008": 30,
+        "2009": 32,
+        "2010": 35,
+        "2011": 40,
+        "2012": 45,
+        "2013": 50,
+        "2014": 55,
+        "2015": 60,
+        "2016": 65,
+        "2017": 70,
+        "2018": 75,
+        "2019": 80,
+        "2020": 85,
+        "2021": 90,
+        "2022": 95
+    };
+
+    // Datos estáticos para la comparación emprendimiento vs innovación (2000-2022)
+    const comparacion = {
+        "2000": { emprendimiento: 10, innovacion: 5 },
+        "2001": { emprendimiento: 12, innovacion: 6 },
+        "2002": { emprendimiento: 15, innovacion: 7 },
+        "2003": { emprendimiento: 18, innovacion: 8 },
+        "2004": { emprendimiento: 20, innovacion: 10 },
+        "2005": { emprendimiento: 22, innovacion: 12 },
+        "2006": { emprendimiento: 25, innovacion: 15 },
+        "2007": { emprendimiento: 28, innovacion: 18 },
+        "2008": { emprendimiento: 30, innovacion: 20 },
+        "2009": { emprendimiento: 32, innovacion: 22 },
+        "2010": { emprendimiento: 35, innovacion: 25 },
+        "2011": { emprendimiento: 40, innovacion: 28 },
+        "2012": { emprendimiento: 45, innovacion: 30 },
+        "2013": { emprendimiento: 50, innovacion: 32 },
+        "2014": { emprendimiento: 55, innovacion: 35 },
+        "2015": { emprendimiento: 60, innovacion: 40 },
+        "2016": { emprendimiento: 65, innovacion: 45 },
+        "2017": { emprendimiento: 70, innovacion: 50 },
+        "2018": { emprendimiento: 75, innovacion: 55 },
+        "2019": { emprendimiento: 80, innovacion: 60 },
+        "2020": { emprendimiento: 85, innovacion: 65 },
+        "2021": { emprendimiento: 90, innovacion: 70 },
+        "2022": { emprendimiento: 95, innovacion: 75 }
+    };
+
+    // Generar datos para gráficos
+    const emprendimientoFemenino = procesarEmprendimientoFemenino([...mujeresData, ...juvenilData]);
+    const tiposEmprendimiento = procesarTiposEmprendimiento([...csvData, ...negociosData]);
+
     // Gráfico de Barras: Emprendimiento Femenino
-    const barChartCtx = document.getElementById('barChart').getContext('2d');
-    const barChart = new Chart(barChartCtx, {
+    new Chart(document.getElementById('barChart').getContext('2d'), {
         type: 'bar',
         data: {
-            labels: ['Tecnología', 'Moda', 'Alimentos', 'Servicios'],
+            labels: Object.keys(emprendimientoFemenino),
             datasets: [{
-                label: 'Emprendimiento Femenino',
-                data: [120, 80, 150, 90],
-                backgroundColor: ['#6db4ff', '#3df9ff', '#1f375b', '#d6e7f6'],
+                label: 'Cantidad',
+                data: Object.values(emprendimientoFemenino),
+                backgroundColor: '#6db4ff',
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
+        options: { scales: { y: { beginAtZero: true } } }
     });
 
-    // Gráfico de Torta: Tipos de Emprendimiento en Colombia
-    const pieChartCtx = document.getElementById('pieChart').getContext('2d');
-    const pieChart = new Chart(pieChartCtx, {
+    // Gráfico de Torta: Tipos de Emprendimiento
+    new Chart(document.getElementById('pieChart').getContext('2d'), {
         type: 'pie',
         data: {
-            labels: ['Social', 'Tecnológico', 'Cultural', 'Empresarial'],
+            labels: Object.keys(tiposEmprendimiento),
             datasets: [{
-                label: 'Tipos de Emprendimiento',
-                data: [40, 30, 20, 10],
-                backgroundColor: ['#6db4ff', '#3df9ff', '#1f375b', '#d6e7f6'],
+                data: Object.values(tiposEmprendimiento),
+                backgroundColor: ['#6db4ff', '#3df9ff', '#1f375b', '#d6e7f6', '#ff6d6d', '#ffb46d'],
             }]
         }
     });
 
     // Gráfico de Líneas: Tendencia de la Innovación
-    const lineChartCtx = document.getElementById('lineChart').getContext('2d');
-    const lineChart = new Chart(lineChartCtx, {
+    new Chart(document.getElementById('lineChart').getContext('2d'), {
         type: 'line',
         data: {
-            labels: ['2010', '2015', '2020', '2023'],
+            labels: Object.keys(tendenciaInnovacion),
             datasets: [{
-                label: 'Innovación Global',
-                data: [50, 70, 90, 120],
+                label: 'Innovación',
+                data: Object.values(tendenciaInnovacion),
                 borderColor: '#6db4ff',
                 fill: false,
             }]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
+        options: { scales: { y: { beginAtZero: true } } }
     });
 
     // Gráfico de Área: Comparación Emprendimiento vs Innovación
-    const areaChartCtx = document.getElementById('areaChart').getContext('2d');
-    const areaChart = new Chart(areaChartCtx, {
+    new Chart(document.getElementById('areaChart').getContext('2d'), {
         type: 'line',
         data: {
-            labels: ['2010', '2015', '2020', '2023'],
+            labels: Object.keys(comparacion),
             datasets: [
                 {
                     label: 'Emprendimiento',
-                    data: [30, 50, 70, 90],
+                    data: Object.values(comparacion).map(d => d.emprendimiento),
                     borderColor: '#6db4ff',
                     fill: true,
                 },
                 {
                     label: 'Innovación',
-                    data: [40, 60, 80, 100],
+                    data: Object.values(comparacion).map(d => d.innovacion),
                     borderColor: '#3df9ff',
                     fill: true,
                 }
             ]
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-    // Encuesta de Capacidad de Emprendimiento
-    document.getElementById('encuestaForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const pregunta1 = parseInt(document.getElementById('pregunta1').value);
-        const pregunta2 = parseInt(document.getElementById('pregunta2').value);
-        const pregunta3 = parseInt(document.getElementById('pregunta3').value);
-
-        const total = pregunta1 + pregunta2 + pregunta3;
-        let resultado = '';
-
-        if (total === 3) {
-            resultado = '¡Tienes un alto potencial de emprendimiento!';
-        } else if (total >= 1) {
-            resultado = 'Tienes un potencial moderado de emprendimiento.';
-        } else {
-            resultado = 'Necesitas más recursos y apoyo para emprender.';
-        }
-
-        document.getElementById('resultadoEncuesta').textContent = resultado;
+        options: { scales: { y: { beginAtZero: true } } }
     });
 });
 
@@ -122,13 +198,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // URLs de los archivos JSON
     const url1 = 'assets/Dbs/Asociaciones_Casa_de_la_Mujer_-_Cota.json';
     const url2 = 'assets/Dbs/emprendimiento_juvenil.json';
-
+    const url3 = 'assets/Dbs/csvjson.json';
     // Cargar y mapear los datos
     Promise.all([
         fetch(url1).then(response => response.json()),
-        fetch(url2).then(response => response.json())
+        fetch(url2).then(response => response.json()),
+        fetch(url3).then(response => response.json()),
     ])
-    .then(([data1, data2]) => {
+    .then(([data1, data2, data3]) => {
         // Mapear la primera base de datos
         const datosMapeados1 = mapearDatos(data1, {
             Año: "AÑO DE CONSTITUCIÓN",
@@ -146,9 +223,15 @@ document.addEventListener('DOMContentLoaded', function () {
             Edad: "EDAD",
             Objeto: "DESCRIPCI�N"
         });
-
+        const datosMapeados3 = mapearDatos(data3 ,{
+            Año: "fecha_de_beneficio_año",
+            Nombre: "tipo_de_emprendimiento",
+            Género: "sexo",
+            Edad: "edad",
+            Objeto: "idea_de_negocio"
+        });
         // Combinar los datos
-        const combinedData = [...datosMapeados1, ...datosMapeados2];
+        const combinedData = [...datosMapeados1, ...datosMapeados2, ...datosMapeados3];
 
         // Inicializar DataTables
         const table = $('#dataTable').DataTable({
